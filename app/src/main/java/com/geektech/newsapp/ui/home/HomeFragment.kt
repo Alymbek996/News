@@ -87,6 +87,9 @@ class HomeFragment : Fragment() {
 
 
     fun rewrite() {
+
+
+
         adapter.onClick = { news ->
             overwriting = true
             val bundle = bundleOf("news" to news)
