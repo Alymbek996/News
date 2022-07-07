@@ -1,5 +1,7 @@
 package com.geektech.newsapp.ui
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +12,7 @@ import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.os.bundleOf
+import androidx.core.widget.doAfterTextChanged
 import com.bumptech.glide.Glide
 import com.geektech.newsapp.R
 import com.geektech.newsapp.databinding.FragmentProfileBinding
@@ -17,6 +20,7 @@ import javax.microedition.khronos.opengles.GL
 
 
 class ProfileFragment : Fragment() {
+    private  lateinit var pref:SharedPreferences
     private lateinit var binding: FragmentProfileBinding
     private val getContent =
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
@@ -36,6 +40,14 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.imageGal.setOnClickListener {
             getContent.launch("image/*")
+        }
+        saveName()
+        binding.textV.text = pref.getString("neme","def")
+    }
+    private fun saveName(){
+        pref = requireContext().getSharedPreferences("neme",Context.MODE_PRIVATE)
+        binding.editT.doAfterTextChanged {
+            pref.edit().putString("neme",it.toString()).apply()
         }
     }
 

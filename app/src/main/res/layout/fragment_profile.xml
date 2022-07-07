@@ -4,6 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.ProfileFragment">
+<EditText
+    android:id="@+id/edit_T"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+/>
+ <TextView
+     android:id="@+id/text_V"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:gravity="bottom"
+  />
 
  <ImageView
      android:id="@+id/image_gal"
