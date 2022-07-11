@@ -49,47 +49,47 @@ class HomeFragment : Fragment() {
         val list = App.database.newsDao().getAll()
         adapter.addItems(list)
 
-        parentFragmentManager.setFragmentResultListener(
-            "rk_news",
-            viewLifecycleOwner
-        ) { requestKey, bundle ->
-            val news = bundle.getSerializable("news") as News
-            val position: Int? = null
-            if (overwriting) {
-                position?.let {
-                    adapter.replaceItem(news, it)
-                }
-            } else {
-                adapter.addItem(news)
-            }
-            binding.recyclerView.adapter = adapter
-        }
+//        parentFragmentManager.setFragmentResultListener(
+//            "rk_news",
+//            viewLifecycleOwner
+//        ) { requestKey, bundle ->
+//            val news = bundle.getSerializable("news") as News
+//            val position: Int? = null
+//            if (overwriting) {
+//                position?.let {
+//                    adapter.replaceItem(news, it)
+//                }
+//            } else {
+//                adapter.addItem(news)
+//            }
+//            binding.recyclerView.adapter = adapter
+//        }
 
-       // alertDialog()
+        binding.recyclerView.adapter = adapter
+     alertDialog()
         rewrite()
     }
 
-//    fun alertDialog() {
-//
-//        adapter.onLongClick = { pos ->
-//            val alertDialog = AlertDialog.Builder(requireContext())
-//            alertDialog.setMessage("Вы дейстивительно хотите удалить")
-//                .setPositiveButton("yes", DialogInterface.OnClickListener() { _, _ ->
-//
-//                    //adapter.deleteItem(pos)
-//                })
-//        }
-//
-//    }
+    fun alertDialog() {
+        adapter.onLongClick = { pos ->
+            val alertDialog = AlertDialog.Builder(requireContext())
+            alertDialog.setTitle("Delete Item")
+//            alertDialog.setIcon(R.id)
+            alertDialog.setMessage("Вы дейстивительно хотите удалить?")
+                .setPositiveButton("yes", DialogInterface.OnClickListener() { _, _ ->
+                    App.database.newsDao().deleteItem(adapter.getItem(pos))
+                    adapter.deleteItem(pos)
+                    adapter.notifyDataSetChanged()
+                }).setNegativeButton("No",DialogInterface.OnClickListener { _, _ ->  })
+            alertDialog.create().show()
+        }
+    }
 
 
 
 
 
     fun rewrite() {
-
-
-
         adapter.onClick = { news ->
             overwriting = true
             val bundle = bundleOf("news" to news)

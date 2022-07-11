@@ -33,7 +33,6 @@ class NewsFragment : Fragment() {
 
         news?.let {
             binding.editText.setText(it.title)
-            boolean = true
         }
 
         binding.btnSave.setOnClickListener {
@@ -42,19 +41,20 @@ class NewsFragment : Fragment() {
     }
 
     private fun save() {
-                val text = binding.editText.text.toString().trim()
-
-                if (news == null  ) {
-
-                    news = News(0,text, System.currentTimeMillis())
-                    App.database.newsDao().insert(news!!)
-                } else {
-                    news?.title = text
-                }
-                val news = News(0,text, System.currentTimeMillis())
-                val bundle = Bundle()
-                bundle.putSerializable("news", news)
-                parentFragmentManager.setFragmentResult("rk_news", bundle)
+        if (news?.title != null) {
+            val newItem = News(news!!.id, binding.editText.text.toString(), System.currentTimeMillis())
+            App.database.newsDao().update(newItem)
+        } else {
+            val text = binding.editText.text.toString().trim()
+            if (news == null) {
+                news = News(0, text, System.currentTimeMillis())
+                App.database.newsDao().insert(news!!)
+            }
+        }
+//                val news = News(0,text, System.currentTimeMillis())
+//                val bundle = Bundle()
+//                bundle.putSerializable("news", news)
+//                parentFragmentManager.setFragmentResult("rk_news", bundle)
 
 
         findNavController().navigateUp()

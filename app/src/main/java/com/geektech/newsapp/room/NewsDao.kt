@@ -1,9 +1,6 @@
 package com.geektech.newsapp.room
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.geektech.newsapp.models.News
 
 @Dao
@@ -21,6 +18,9 @@ interface NewsDao {
 
     @Delete
     fun deleteItem(news: News)
+
+    @Update
+    fun update (news: News)
 
 }
 

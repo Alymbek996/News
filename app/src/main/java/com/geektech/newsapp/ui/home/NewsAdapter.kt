@@ -8,11 +8,12 @@ import com.geektech.newsapp.databinding.ItemNewsBinding
 import com.geektech.newsapp.models.News
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class NewsAdapter(
 
 ) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
-    private val list = arrayListOf<News>()
+    private var list = arrayListOf<News>()
     var onLongClick:((pos:Int) -> Unit)? = null
     var onClick: ((news:News) ->Unit)? = null
 
@@ -50,7 +51,7 @@ class NewsAdapter(
         return list[pos]
     }
     fun addItems(list: List<News>) {
-        this.list.addAll(list)
+        this.list = list as ArrayList<News>
         notifyDataSetChanged()
     }
     fun replaceItem(news: News, position: Int) {
@@ -60,6 +61,7 @@ class NewsAdapter(
 
     fun deleteItem(pos: Int) {
         list.removeAt(pos)
+        notifyItemRemoved(pos)
     }
 
     fun removeItem(news: News) {
