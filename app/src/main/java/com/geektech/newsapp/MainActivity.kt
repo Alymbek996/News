@@ -39,9 +39,9 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-if (!Prefs(this).isShown()) {
-    navController.navigate(R.id.boardFragment)
-}
+        if (!Prefs(this).isShown()) {
+            navController.navigate(R.id.boardFragment)
+        }
         navController.addOnDestinationChangedListener { navController: NavController, navDestination: NavDestination, bundle: Bundle? ->
             val fragments = arrayListOf(
                 R.id.navigation_home,

@@ -24,7 +24,7 @@ class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
     private val getContent =
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-            Glide.with(binding.imageGal).load(uri).centerCrop().into(binding. imageGal)
+            Glide.with(binding.imageGal).load(uri).centerCrop().circleCrop().into(binding. imageGal)
         }
 
     override fun onCreateView(

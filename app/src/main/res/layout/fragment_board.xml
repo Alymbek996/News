@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:layout_marginEnd="8dp"
         android:id="@+id/btnSkip"
         android:layout_width="wrap_content"
         android:layout_height="42dp"
@@ -33,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:dampingRatio="0.5"
-        app:dotsColor="@color/blue"
+        app:dotsColor="@color/red2"
         app:dotsCornerRadius="2dp"
         app:dotsSize="16dp"
         app:dotsSpacing="6dp"

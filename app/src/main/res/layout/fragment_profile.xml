@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.ProfileFragment">
@@ -18,25 +19,15 @@
      android:gravity="bottom"
   />
 
- <de.hdodenhof.circleimageview.CircleImageView
-     android:id="@+id/image_gal"
-     android:layout_width="300dp"
-     android:src="@mipmap/ic_gale_foreground"
-     android:layout_height="300dp"
-     android:layout_gravity="center"
-     app:layout_constraintVertical_bias="0.11"
-     app:layout_constraintHorizontal_bias="0.925"
-     />
-<!-- <de.hdodenhof.circleimageview.CircleImageView-->
-<!--     android:id="@+id/image_gal"-->
-<!--     android:layout_width="248dp"-->
-<!--     android:layout_height="248dp"-->
-<!--     android:src="@mipmap/ic_gale_foreground"-->
-<!--     app:layout_constraintBottom_toBottomOf="parent"-->
-<!--     app:layout_constraintEnd_toEndOf="parent"-->
-<!--     app:layout_constraintHorizontal_bias="0.925"-->
-<!--     app:layout_constraintStart_toStartOf="parent"-->
-<!--     app:layout_constraintTop_toTopOf="parent"-->
-<!--     app:layout_constraintVertical_bias="0.11" />-->
+  <com.google.android.material.imageview.ShapeableImageView
+    android:layout_width="300dp"
+    android:layout_height="300dp"
+    android:id="@+id/image_gal"
+      android:src="@mipmap/ic_gale_foreground"
+      android:layout_gravity="center"
+      app:shapeAppearanceOverlay="@style/Circular"
+   />
+
+
 
 </FrameLayout>

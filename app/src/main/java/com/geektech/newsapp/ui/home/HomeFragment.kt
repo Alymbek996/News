@@ -49,6 +49,7 @@ class HomeFragment : Fragment() {
         val list = App.database.newsDao().getAll()
         adapter.addItems(list)
 
+
 //        parentFragmentManager.setFragmentResultListener(
 //            "rk_news",
 //            viewLifecycleOwner
