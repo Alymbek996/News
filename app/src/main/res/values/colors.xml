@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_500">#F0792BE8</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
@@ -12,5 +12,12 @@
     <color name="red">#C30909</color>
     <color name="blue">#00BCD4</color>
     <color name="red2">#FA0248</color>
+    <color name="fioleT">#6558E1</color>
+    <color name="белый">#D5F8F8F8</color>
+    <color name="белый7">#D5F8F8F8</color>
+    <color name="белый2">#23EDE9ED</color>
+    <color name="белый4">#D5EDE9ED</color>
+    <color name="белый3">#FCE3E2E3</color>
+    <color name="желтый">#FFC107</color>
 
 </resources>

@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:orientation="vertical"
+    android:background="@drawable/www"
     tools:context=".ui.NewsFragment"
      >
 <EditText

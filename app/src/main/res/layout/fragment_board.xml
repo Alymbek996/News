@@ -18,10 +18,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:layout_marginEnd="8dp"
         android:id="@+id/btnSkip"
         android:layout_width="wrap_content"
         android:layout_height="42dp"
+        android:layout_marginEnd="8dp"
         android:backgroundTint="@color/red"
         android:text="Skip ->"
         android:textSize="12sp"
@@ -38,7 +38,7 @@
         app:dotsCornerRadius="2dp"
         app:dotsSize="16dp"
         app:dotsSpacing="6dp"
-        app:dotsStrokeColor="@color/black2"
+        app:dotsStrokeColor="@color/teal_200"
         app:dotsStrokeWidth="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,4 +48,7 @@
         tools:ignore="MissingConstraints"
 
         />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

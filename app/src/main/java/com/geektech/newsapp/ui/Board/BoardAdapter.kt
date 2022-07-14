@@ -4,16 +4,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.geektech.newsapp.R
 import com.geektech.newsapp.databinding.PagerBoardBinding
 import com.geektech.newsapp.models.ModelsPager
 
 class BoardAdapter (private val  onClickStart: () -> Unit ): RecyclerView.Adapter<BoardAdapter.ViewHolder>() {
     private val swipe = arrayListOf<ModelsPager>(
-        ModelsPager("страница1", R.drawable.news0spng,"1"),
-        ModelsPager("страница2",R.drawable.news2s,"2"),
-        ModelsPager("страница1",R.drawable.news4s,"3")
+        ModelsPager("страница1",R.raw.news_lot2,"1"),
+        ModelsPager("страница2",R.raw.news_lot,"2"),
+        ModelsPager("страница1",R.raw.lott,"3" )
 
     )
 
@@ -31,6 +30,7 @@ class BoardAdapter (private val  onClickStart: () -> Unit ): RecyclerView.Adapte
         holder.bind(swipe[position])
     }
 
+
     override fun getItemCount() = swipe.size
 
     inner class ViewHolder(private var binding: PagerBoardBinding) :
@@ -39,12 +39,14 @@ class BoardAdapter (private val  onClickStart: () -> Unit ): RecyclerView.Adapte
            // binding.textTitle.text = titles[position]
             binding.textTitle.text = titles.title
             binding.textDesc.text = titles.description
-            Glide.with(binding.imageView).load(titles.image).into(binding.imageView)
+
+            binding.imageView.setAnimation(titles.image)
+         //  Glide.with(binding.imageView).load(titles.image2).into(binding.imageView)
             if (position == swipe.size - 1) {
-               // binding.btnSkip.visibility = View.INVISIBLE
+
                 binding.btnStart.visibility = View.VISIBLE
             } else {
-//                binding.btnSkip.visibility = View.VISIBLE
+
                 binding.btnStart.visibility = View.INVISIBLE
 
             }
@@ -53,10 +55,8 @@ class BoardAdapter (private val  onClickStart: () -> Unit ): RecyclerView.Adapte
                 onClickStart()
 
             }
-//            binding.btnSkip.setOnClickListener {
-//                onClickStart()
-//            }
 
         }
+
     }
 }
