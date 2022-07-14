@@ -41,31 +41,35 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        if (!Prefs(this).isShown()) {
+        if (Prefs(this).isShown()) {
             navController.navigate(R.id.boardFragment)
         }
+
         navController.addOnDestinationChangedListener { navController: NavController, navDestination: NavDestination, bundle: Bundle? ->
             val fragments = arrayListOf(
                 R.id.navigation_home,
                 R.id.navigation_dashboard,
                 R.id.navigation_notifications,
-                R.id.profileFragment
+               // R.id.profileFragment
             )
-            if (fragments.contains(navDestination.id)){
+            if (fragments.contains(navDestination.id)) {
                 binding.navView.visibility = View.VISIBLE
-            }else{
-                binding.navView.visibility = View. GONE
+            } else {
+                binding.navView.visibility = View.GONE
             }
-            if (navDestination.id == R.id.boardFragment){
-              supportActionBar?.hide()
-            }else{
+            if (navDestination.id == R.id.boardFragment) {
+                supportActionBar?.hide()
+            } else {
                 supportActionBar?.show()
             }
+            if (navDestination.id == R.id.profileFragment) {
+                supportActionBar?.hide()
+            }
         }
-    }
 
-    override fun onBackPressed() {
+        fun onBackPressed() {
 
-        super.onBackPressed()
+            super.onBackPressed()
+        }
     }
 }
